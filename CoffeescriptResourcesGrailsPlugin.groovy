@@ -1,16 +1,11 @@
-import org.springframework.core.io.FileSystemResource
-import grails.util.BuildSettingsHolder
 import org.grails.plugin.resource.ResourceProcessor
 import org.grails.plugin.resource.ResourceTagLib
 
 class CoffeescriptResourcesGrailsPlugin {
-    def version = "0.3.3"
+    def version = "0.3.4.rob"
     def grailsVersion = "1.3.7 > *"
     def dependsOn = [:]
     def pluginExcludes = [
-            "src/coffee/test.coffee",
-            "src/coffee/smtelse.coffee",
-            "web-app/js/one.js",
             "grails-app/views/error.gsp"
     ]
 
