@@ -1,1 +1,1 @@
-ant.mkdir dir: "${basedir}/src/coffee"
+ant.mkdir dir: "${basedir}/web-app/cs"

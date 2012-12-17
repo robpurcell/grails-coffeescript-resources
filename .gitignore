@@ -9,3 +9,5 @@ target/
 
 out/
 stacktrace.log
+
+*.zip

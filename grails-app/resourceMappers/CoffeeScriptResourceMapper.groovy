@@ -1,9 +1,7 @@
-import org.grails.plugin.resource.mapper.MapperPhase
 import org.codehaus.groovy.grails.commons.GrailsApplication
 import org.codehaus.groovy.grails.plugins.support.aware.GrailsApplicationAware
-import org.mozilla.javascript.EvaluatorException
+import org.grails.plugin.resource.mapper.MapperPhase
 import org.grails.plugins.coffeescript.NodeJSCoffeeScriptEngine
-import org.grails.plugins.coffeescript.NodeJSCoffeeScriptException
 
 class CoffeeScriptResourceMapper implements GrailsApplicationAware {
     def phase = MapperPhase.GENERATION
@@ -13,7 +11,6 @@ class CoffeeScriptResourceMapper implements GrailsApplicationAware {
     GrailsApplication grailsApplication
 
     def map(resource, config) {
-        log.error("Rob!!!")
         if (isCoffeeResource(resource)) {
             try {
                 mapCoffeeScript resource
@@ -37,7 +34,7 @@ class CoffeeScriptResourceMapper implements GrailsApplicationAware {
         File target = generateCompiledFileFromOriginal(original)
 
         if (log.debugEnabled)
-            log.debug "Compiling coffeescript file ${original} into ${target}"
+            log.debug "Compiling CoffeeScript file ${original} into ${target}"
 
         compile(input, target)
 
@@ -68,7 +65,7 @@ class CoffeeScriptResourceMapper implements GrailsApplicationAware {
         }
         else {
             log.info("Using RhinoJS Engine")
-            output = new org.grails.plugins.coffeescript.CoffeeScriptEngine().compile(input.text)
+            output = new org.grails.plugins.coffeescript.CoffeeScriptEngine().compile(input)
         }
         target.write(output)
     }
